@@ -1,19 +1,33 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import requests
+
 
 # Seite 1
 def page_1():
     st.write("Willkommen auf Seite 1")
     st.write("Klicken Sie auf den Button, um zu Seite 2 zu wechseln")
-    if st.button("Zu Seite 2 wechseln"):
-        page_2()
+  
+    st.set_page_config(page_title="Techlabs Document-Scanner", page_icon=":camera:", layout="wide")
+
+    # Eingabemaske zur Auswahl des Bildes
+    file = st.file_uploader("Wähle ein Bild zum Hochladen aus", type=["jpg", "jpeg", "png"])
+
+    if file:
+        image = file.getvalue()
+        response = requests.post("http://localhost:5000/predict", data=image)
+        st.write("Das hochgeladene Bild:", response.content)
+
+
+        if st.button("Zu Seite 2 wechseln"):
+            page_2()
 
 # Seite 2
 def page_2():
-    st.write("Willkommen auf Seite 2")
-    st.write("Klicken Sie auf den Button, um zu Seite 1 zurückzukehren")
-    st.title('Techlabs Document Scanner')
+    st.write("Click the button to return to home")
+    if st.button("Home"):
+    st.title('Testingsite')
 
     DATE_COLUMN = 'date/time'
     DATA_URL = ('https://s3-us-west-2.amazonaws.com/'
@@ -47,7 +61,7 @@ def page_2():
     st.map(filtered_data)
 
 
-    if st.button("Zurück zu Seite 1"):
+
         page_1()
 
 # Startseite
