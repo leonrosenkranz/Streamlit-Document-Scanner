@@ -5,6 +5,7 @@ import requests
 
 
 st.set_page_config(page_title="Bild-Upload-App", page_icon=":camera:", layout="wide")
+st.title('Techlabs Document Scanner')
 
 # Eingabemaske zur Auswahl des Bildes
 file = st.file_uploader("Wähle ein Bild zum Hochladen aus", type=["jpg", "jpeg", "png"])
