@@ -10,7 +10,7 @@ def page_1():
     if st.button("Zu Seite 2 wechseln"):
         page_2()
 
-    st.set_page_config(page_title="Techlabs Document Scanner", page_icon=":camera:", layout="wide")
+    st.set_page_config(page_title="Techlabs Document Scanner", layout="wide")
 
     # Eingabemaske zur Auswahl des Bildes
     file = st.file_uploader("Wähle ein Bild zum Hochladen aus", type=["jpg", "jpeg", "png"])
@@ -65,5 +65,3 @@ def page_2():
 
 # Startseite
 page_1()
-
-
