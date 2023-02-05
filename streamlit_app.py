@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import requests
 
 # Seite 1
 def page_1():
@@ -8,6 +9,18 @@ def page_1():
     st.write("Klicken Sie auf den Button, um zu Seite 2 zu wechseln")
     if st.button("Zu Seite 2 wechseln"):
         page_2()
+
+    st.set_page_config(page_title="Techlabs Document Scanner", page_icon=":camera:", layout="wide")
+
+    # Eingabemaske zur Auswahl des Bildes
+    file = st.file_uploader("Wähle ein Bild zum Hochladen aus", type=["jpg", "jpeg", "png"])
+
+    if file:
+        image = file.getvalue()
+        response = requests.post("http://localhost:5000/predict", data=image)
+        st.write("Das hochgeladene Bild:", response.content)
+
+
 
 # Seite 2
 def page_2():
