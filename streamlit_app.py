@@ -2,6 +2,24 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
+# Seite 1
+def page_1():
+    st.write("Willkommen auf Seite 1")
+    st.write("Klicken Sie auf den Button, um zu Seite 2 zu wechseln")
+    if st.button("Zu Seite 2 wechseln"):
+        page_2()
+
+# Seite 2
+def page_2():
+    st.write("Willkommen auf Seite 2")
+    st.write("Klicken Sie auf den Button, um zu Seite 1 zurückzukehren")
+    if st.button("Zurück zu Seite 1"):
+        page_1()
+
+# Startseite
+page_1()
+
+
 st.title('Techlabs Document Scanner')
 
 DATE_COLUMN = 'date/time'
@@ -34,3 +52,4 @@ filtered_data = data[data[DATE_COLUMN].dt.hour == hour_to_filter]
 
 st.subheader('Map of all pickups at %s:00' % hour_to_filter)
 st.map(filtered_data)
+
