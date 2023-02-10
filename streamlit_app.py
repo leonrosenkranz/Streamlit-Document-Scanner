@@ -32,3 +32,17 @@ linkedin_url = "https://www.linkedin.com/in/ayman-soultana-3408a5192/?originalSu
 text = f"[Ayman]( {linkedin_url} )"
 
 st.markdown(text, unsafe_allow_html=True)
+
+linkedin_url_ayman = "https://de.linkedin.com/in/ayman-soultana-3408a5192"
+linkedin_url_joshua = "https://de.linkedin.com/in/josua-goecking"
+linkedin_url_tobias = "https://de.linkedin.com/in/tobias-averbeck-771390157"
+linkedin_url_leon = "https://www.xing.com/profile/Leon_Rosenkranz2"
+
+text = (
+    f"<p style='color: white;'><a style='color: white;' href='{linkedin_url_ayman}'>Ayman Soultana</a></p>"
+    f"<p style='color: white;'><a style='color: white;' href='{linkedin_url_joshua}'>Joshua Göcking</a></p>"
+    f"<p style='color: white;'><a style='color: white;' href='{linkedin_url_tobias}'>Tobias Averbeck</a></p>"
+    f"<p style='color: white;'><a style='color: white;' href='{linkedin_url_leon}'>Leon Rosenkranz</a></p>"
+)
+
+st.markdown(text, unsafe_allow_html=True)
