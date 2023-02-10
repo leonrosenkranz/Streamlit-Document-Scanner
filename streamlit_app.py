@@ -25,6 +25,6 @@ if uploaded_file is not None:
 
 st.markdown("<br><hr style='border-top: 10px solid green'><br>", unsafe_allow_html=True)
 st.markdown("An AI solution by TechLabs X <span style='color: solid green'>math</span>SCAN®", unsafe_allow_html=True)
-st.image("C:\\Users\\leon.rosenkranz\\Documents\\Studium\\Techlabs\\Git repository\\Streamlit-Document-Scanner\\Icons\\TechLabs.jpg")
+st.image("https://techlabs.org/static/tl-logo-white-b4f7f9cac2eabf0e15d37fc9be3db918.png")
 
 
