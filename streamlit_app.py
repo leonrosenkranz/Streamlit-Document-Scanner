@@ -28,10 +28,7 @@ image_url = "https://techlabs.org/static/tl-logo-white-b4f7f9cac2eabf0e15d37fc9b
 st.image(image_url, width=400)
 st.markdown("TechLabs X <span style='color: green'>math</span>SCAN®", unsafe_allow_html=True)
 
-linkedin_url = "https://www.linkedin.com/in/ayman-soultana-3408a5192/?originalSubdomain=de"
-text = f"[Ayman]( {linkedin_url} )"
-
-st.markdown(text, unsafe_allow_html=True)
+st.markdown("<h1>Contact<\h1><br>", unsafe_allow_html=True)
 
 linkedin_url_ayman = "https://de.linkedin.com/in/ayman-soultana-3408a5192"
 linkedin_url_joshua = "https://de.linkedin.com/in/josua-goecking"
