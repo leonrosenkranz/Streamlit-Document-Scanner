@@ -28,5 +28,5 @@ st.markdown("<br><hr style='border-top: 10px solid green'><br>", unsafe_allow_ht
 image_url = "https://techlabs.org/static/tl-logo-white-b4f7f9cac2eabf0e15d37fc9be3db918.png"
 text = "An AI solution by TechLabs X mathSCAN®"
 
-st.image(image_url, width=600)
+st.image(image_url, width=400)
 st.markdown(f"<p style='color: green'>{text}</p>", unsafe_allow_html=True)
