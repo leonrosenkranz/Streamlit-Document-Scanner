@@ -4,7 +4,19 @@ import numpy as np
 import requests
 import io
 from PIL import Image
+import pyperclip
 
+def main():
+    st.set_page_config(page_title="Clipboard Image Uploader", page_icon=":clipboard:", layout="wide")
+
+    image_bytes = pyperclip.paste()
+    if image_bytes.startswith("data:image"):
+        st.image(image_bytes, width=None, use_column_width=True)
+    else:
+        st.warning("No image found in clipboard.")
+
+if __name__ == "__main__":
+    main()
 
 
 
