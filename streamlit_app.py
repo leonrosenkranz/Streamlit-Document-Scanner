@@ -6,9 +6,6 @@ import io
 from PIL import Image
 
 
-# Header
-
-st.markdown("TechLabs X <span style='color: green'>math</span>SCAN®")
 
 
 # Eingabemaske zur Auswahl des Bildes
@@ -22,3 +19,4 @@ if uploaded_file is not None:
     image = Image.open(uploaded_file)
     st.image(image, caption="Uploaded Image", use_column_width=True)
 
+st.markdown("TechLabs X <span style='color: green'>math</span>SCAN®")
