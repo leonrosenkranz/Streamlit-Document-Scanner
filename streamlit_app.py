@@ -24,10 +24,9 @@ if uploaded_file is not None:
 # Credits
 
 st.markdown("<br><hr style='border-top: 10px solid green'><br>", unsafe_allow_html=True)
-markdown_text = """
-![TechLabs Logo](https://techlabs.org/static/tl-logo-white-b4f7f9cac2eabf0e15d37fc9be3db918.png){width=100%}
 
-An AI solution by TechLabs X <span style="color: green">math</span>SCAN®
-"""
+image_url = "https://techlabs.org/static/tl-logo-white-b4f7f9cac2eabf0e15d37fc9be3db918.png"
+text = "An AI solution by TechLabs X mathSCAN®"
 
-st.markdown(markdown_text, unsafe_allow_html=True)
+st.image(image_url, width=600)
+st.markdown(f"<p style='color: green'>{text}</p>", unsafe_allow_html=True)
