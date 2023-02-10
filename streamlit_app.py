@@ -33,7 +33,7 @@ st.markdown("<h2>Get in contact</h2><br>", unsafe_allow_html=True)
 linkedin_url_ayman = "https://de.linkedin.com/in/ayman-soultana-3408a5192"
 linkedin_url_joshua = "https://de.linkedin.com/in/josua-goecking"
 linkedin_url_tobias = "https://de.linkedin.com/in/tobias-averbeck-771390157"
-linkedin_url_leon = "https://www.xing.com/profile/Leon_Rosenkranz2"
+linkedin_url_leon = "https://www.linkedin.com/in/leon-rosenkranz-1b7997225/"
 
 text = (
     f"<p style='color: white;'><a style='color: white;' href='{linkedin_url_ayman}'>Ayman Soultana</a></p>"
