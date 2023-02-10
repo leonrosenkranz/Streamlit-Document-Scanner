@@ -4,20 +4,6 @@ import numpy as np
 import requests
 import io
 from PIL import Image
-import pyperclip
-
-def main():
-    st.set_page_config(page_title="Clipboard Image Uploader", page_icon=":clipboard:", layout="wide")
-
-    image_bytes = pyperclip.paste()
-    if image_bytes.startswith("data:image"):
-        st.image(image_bytes, width=None, use_column_width=True)
-    else:
-        st.warning("No image found in clipboard.")
-
-if __name__ == "__main__":
-    main()
-
 
 
 # Eingabemaske zur Auswahl des Bildes
@@ -32,6 +18,7 @@ uploaded_file = st.file_uploader("Wählen Sie ein Bild aus", type=["jpg", "jpeg"
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
     st.image(image, caption="Uploaded Image", use_column_width=True)
+
 
 # Credits
 
