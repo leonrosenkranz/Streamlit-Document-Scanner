@@ -24,7 +24,7 @@ if uploaded_file is not None:
 # Credits
 
 st.markdown("<br><hr style='border-top: 10px solid green'><br>", unsafe_allow_html=True)
-st.markdown("An AI solution by TechLabs X <span style='color: green'>math</span>SCAN®", unsafe_allow_html=True)
+st.markdown("An AI solution by TechLabs X <span style='color: solid green'>math</span>SCAN®", unsafe_allow_html=True)
 st.image("C:\\Users\\leon.rosenkranz\\Documents\\Studium\\Techlabs\\Git repository\\Streamlit-Document-Scanner\\Icons\\TechLabs.png")
 
 
