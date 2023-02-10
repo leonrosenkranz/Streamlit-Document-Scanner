@@ -26,6 +26,7 @@ if uploaded_file is not None:
 st.markdown("<br><hr style='border-top: 10px solid green'><br>", unsafe_allow_html=True)
 
 image_url = "https://techlabs.org/static/tl-logo-white-b4f7f9cac2eabf0e15d37fc9be3db918.png"
+text = "An AI solution by TechLabs X <span style='color: solid green'>math</span>SCAN®"
 
 st.image(image_url, width=400)
-st.markdown(f"An AI solution by TechLabs X <p style='color: green'>math</p>SCAN®", unsafe_allow_html=True)
+st.markdown(f"<p>{text}</p>", unsafe_allow_html=True)
