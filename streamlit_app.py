@@ -26,7 +26,7 @@ if uploaded_file is not None:
 st.markdown("<br><hr style='border-top: 10px solid green'><br>", unsafe_allow_html=True)
 image_url = "https://techlabs.org/static/tl-logo-white-b4f7f9cac2eabf0e15d37fc9be3db918.png"
 st.image(image_url, width=400)
-st.markdown("2023 - TechLabs X <span style='color: green'>math</span>SCAN®", unsafe_allow_html=True)
+st.markdown("© 2023 - TechLabs X <span style='color: green'>math</span>SCAN®", unsafe_allow_html=True)
 
 st.markdown("<h2>Get in contact</h2><br>", unsafe_allow_html=True)
 
