@@ -13,7 +13,7 @@ st.title('TechLabs Document Scanner')
 
 st.markdown("<br><hr style='border-top: 10px solid green'><br>", unsafe_allow_html=True)
 
-uploaded_file = st.file_uploader("Select an image of mathematical expression", type=["jpg", "jpeg", "png"])
+uploaded_file = st.file_uploader("Select an image of your mathematical expression", type=["jpg", "jpeg", "png"])
 
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
