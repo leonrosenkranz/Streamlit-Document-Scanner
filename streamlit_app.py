@@ -6,10 +6,15 @@ import io
 from PIL import Image
 
 
-st.set_page_config(page_title="Bild-Upload-App", page_icon=":camera:", layout="wide")
-st.title('Techlabs Document Scanner')
+# Header
+
+st.markdown("TechLabs X <span style='color: green'>math</span>SCAN®")
+
 
 # Eingabemaske zur Auswahl des Bildes
+
+st.set_page_config(page_title="Bild-Upload-App", page_icon=":camera:", layout="wide")
+st.title('Techlabs Document Scanner')
 
 uploaded_file = st.file_uploader("Wählen Sie ein Bild aus", type=["jpg", "jpeg", "png"])
 
