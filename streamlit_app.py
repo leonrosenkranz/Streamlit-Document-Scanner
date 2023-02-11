@@ -9,7 +9,7 @@ from PIL import Image
 # Input interface for selection of the image
 
 st.set_page_config(page_title="© 2023 mathSCAN", page_icon=":camera:", layout="wide")
-st.title('TechLabs Document Scanner Test')
+st.title('TechLabs Document Scanner')
 
 st.markdown("<br><hr style='border-top: 10px solid green'><br>", unsafe_allow_html=True)
 
