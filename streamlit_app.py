@@ -24,7 +24,7 @@ if uploaded_file is not None:
 st.markdown("<br><hr style='border-top: 10px solid green'><br>", unsafe_allow_html=True)
 
 
-+# Preprocessing
+# Preprocessing
 img_height = 825
 img_width = 825
 
