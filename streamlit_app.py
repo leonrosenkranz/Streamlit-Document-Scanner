@@ -4,7 +4,7 @@ import numpy as np
 import requests
 import io
 from PIL import Image
-from tensorflow import keras
+
 
 # Input interface for selection of the image
 
@@ -13,50 +13,14 @@ st.title('TechLabs Document Scanner')
 
 st.markdown("<br><hr style='border-top: 10px solid green'><br>", unsafe_allow_html=True)
 
-file = st.file_uploader("Select an image of your mathematical expression", type=["jpg", "jpeg", "png"])
+uploaded_file = st.file_uploader("Select an image of your mathematical expression", type=["jpg", "jpeg", "png"])
 
-if file is not None:
-    image = Image.open(file)
+if uploaded_file is not None:
+    image = Image.open(uploaded_file)
     st.image(image, caption="Uploaded Image", use_column_width=True)
-    image = file.getvalue()
-    response = requests.post("http://localhost:5000/predict", data=image)
-    file_details = {"FileName":file.name,"FileType":file.type}
-    st.write(file_details)
-    img = Image.open(file)
-    img_name = "{}-{}".format(datetime.datetime.now().strftime("%Y%m%d-%H%M%S"),file_details["FileName"])
-    img.save('PictureUpload\{}'.format(img_name))
-    st.image(img,caption=file_details["FileName"],width=500)
 
 st.markdown("<br><hr style='border-top: 10px solid green'><br>", unsafe_allow_html=True)
 
-
-# Preprocessing
-
-"""
-def encode_single_sample(img):
-    #chane img_path correctly
-    #img_path = pathOfDirectory + img_path
-    # 1. Read image
-    #img = tf.io.read_file(img_path)
-    #2. Decode and convert to grayscale
-    img = tf.io.decode_png(img, channels=1)
-    # 3. Convert to float32 in [0, 1] range
-    img = tf.image.convert_image_dtype(img, tf.float32)
-    # 4. Resize to the desired size
-    img = tf.image.resize_with_pad(img, img_height, img_width)
-    # 5. Transpose the image because we want the time
-    # dimension to correspond to the width of the image.
-    img = tf.transpose(img, perm=[1, 0, 2])
-    # 4. Map the characters in label to numbers
-    #label = label
-    # 5. Return a dict as our model is expecting two inputs
-    #return {"image": img, "label": label}
-    return img
-
-model = keras.models.load_model("C:\Users\leon.rosenkranz\Documents\Studium\Techlabs\Git repository\Streamlit-Document-Scanner\Model\trainedModel\saved_model.pb")
-model.predict(test_input)
-
-"""
 
 # Credits
 
