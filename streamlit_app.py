@@ -48,7 +48,7 @@ def encode_single_sample(img):
     #return {"image": img, "label": label}
     return img
 
-model = keras.models.load_model("C:\Users\leon.rosenkranz\Documents\Studium\Techlabs\Git repository\Streamlit-Document-Scanner\Model\trainedModel\saved_model.pb")
+model = keras.models.load_model("C:\\Users\\leon.rosenkranz\\Documents\\Studium\\Techlabs\\Git repository\\Streamlit-Document-Scanner\\Model\\trainedModel\\saved_model.pb")
 img = encode_single_sample(image)
 model.predict(img)
 
