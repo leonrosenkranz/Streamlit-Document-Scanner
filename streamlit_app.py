@@ -4,9 +4,11 @@ import numpy as np
 import requests
 import io
 from PIL import Image
-#import tensorflow as tf
+import tensorflow as tf
 import keras
-
+import sklearn
+from sklearn.preprocessing import OneHotEncoder, LabelEncoder
+import joblib
 
 # Input interface for selection of the image
 
@@ -16,12 +18,18 @@ st.title('TechLabs Document Scanner')
 st.markdown("<br><hr style='border-top: 10px solid green'><br>", unsafe_allow_html=True)
 
 uploaded_file = st.file_uploader("Select an image of your mathematical expression", type=["jpg", "jpeg", "png"])
-
+image = tf.io.read_file("C:/Users/Ayman/Documents/mathformula.png")
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
     st.image(image, caption="Uploaded Image", use_column_width=True)
 
 st.markdown("<br><hr style='border-top: 10px solid green'><br>", unsafe_allow_html=True)
+
+#Converts preprocessed Latex Formula back to String
+def decodePreprocessedLatex(y_pred, label_encoder):
+  filtered_token = list(filter(lambda x: x != 530, y_pred))
+  y_decoded = label_encoder.inverse_transform(filtered_token)
+  return ' '.join(y_decoded)
 
 
 # Preprocessing
@@ -43,14 +51,32 @@ def encode_single_sample(img):
     # dimension to correspond to the width of the image.
     img = tf.transpose(img, perm=[1, 0, 2])
     # 4. Map the characters in label to numbers
-    #label = label
+    img = tf.expand_dims(img,axis=0)
     # 5. Return a dict as our model is expecting two inputs
     #return {"image": img, "label": label}
     return img
 
-model = keras.models.load_model("C:\\Users\\leon.rosenkranz\\Documents\\Studium\\Techlabs\\Git repository\\Streamlit-Document-Scanner\\Model\\trainedModel\\saved_model.pb")
-img = encode_single_sample(image)
-model.predict(img)
+#Label Encoder
+encoder = joblib.load('label_encoder.joblib')
+maximum_length = 206
+
+
+# A utility function to decode the output of the network
+def decode_batch_predictions(pred):
+    input_len = np.ones(pred.shape[0]) * pred.shape[1]
+    # Use greedy search. For complex tasks, you can use beam search
+    results = keras.backend.ctc_decode(pred, input_length=input_len, greedy=True)[0][0][
+        :, :maximum_length
+    ]
+    # Iterate over the results and get back the text
+    output_text = []
+    for res in results:
+        res = tf.strings.reduce_join(decodePreprocessedLatex(res,encoder)).numpy().decode("utf-8")
+        print(res)
+        output_text.append(res)
+    return output_text
+
+model = keras.models.load_model("C:/Users/Ayman/Desktop/streamlit/Streamlit-Document-Scanner/Model/trainedModel")
 
 
 # Credits
@@ -73,3 +99,10 @@ text = (
 )
 
 st.markdown(text, unsafe_allow_html=True)
+
+batch_size = 1
+
+img = encode_single_sample(image)
+pred = model.predict(img,batch_size=1)
+pred_decoded = decode_batch_predictions(pred)
+print(pred_decoded)
