@@ -4,7 +4,7 @@ import numpy as np
 import requests
 import io
 from PIL import Image
-#import tensorflow as tf
+import tensorflow as tf
 import keras
 
 
@@ -25,6 +25,7 @@ st.markdown("<br><hr style='border-top: 10px solid green'><br>", unsafe_allow_ht
 
 
 # Preprocessing
+
 img_height = 825
 img_width = 825
 
