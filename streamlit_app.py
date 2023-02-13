@@ -33,6 +33,7 @@ def decodePreprocessedLatex(y_pred, label_encoder):
 
 
 # Preprocessing
+
 img_height = 825
 img_width = 825
 
